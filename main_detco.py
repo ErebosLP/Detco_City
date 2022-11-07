@@ -35,7 +35,7 @@ model_names = sorted(name for name in models.__dict__
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 parser.add_argument('data',default='E:/Datasets/', metavar='DIR',
                     help='path to dataset')
-parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
+parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet50',
                     choices=model_names,
                     help='model architecture: ' +
                         ' | '.join(model_names) +
@@ -263,7 +263,7 @@ def main_worker(gpu, ngpus_per_node, args):
             normalize
         ]
 
-    train_dataset = detco.City_imageloader.CityscapeDataset('E:/Datasets/' ,'train',detco.loader.TwoCropsTransform(transforms.Compose(augmentation))) #datasets.ImageFolder(
+    train_dataset = detco.City_imageloader.CityscapeDataset('../dataset/' ,'train',detco.loader.TwoCropsTransform(transforms.Compose(augmentation))) #datasets.ImageFolder(
         #traindir,
         #detco.loader.TwoCropsTransform(transforms.Compose(augmentation)))
 
